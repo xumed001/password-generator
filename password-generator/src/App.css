@@ -1,0 +1,30 @@
+/* reset default */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---------------------------------------------------------------------- */
+
+body {
+  background-color: darkgray;
+}
+
+.header-nav {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  align-items: center;
+  border-bottom: 1px solid rgb(29, 29, 29, 0.2);
+  padding: 1rem 0;
+}
