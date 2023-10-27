@@ -3,14 +3,11 @@
 
 function NavBar() {
     return (
-        <>
-        <header>
+        <header >
             <nav className="header-nav">
-                <h1>Password Generator</h1>
-                <p>Generatre secure passwords </p>
+                <h1>🔐 Password Generator</h1>
             </nav>
         </header>
-        </>
     )
 }
 
