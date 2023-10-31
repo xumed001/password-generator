@@ -1,25 +1,20 @@
 //
 //
 import { sha256 } from 'js-sha256'
+import { useState } from 'react';
 
 function Main() {
-    const array = new Uint32Array(1)
-    const seed = self.crypto.getRandomValues(array)
-    const seedIni = seed[0].toString()
-    const hashCode = sha256(seedIni)
-    const hashArr = [...hashCode]
-    const shuffledHash  = fyShuffle(hashArr)
+    const [pass, setPass] = useState('')
+    const [passLength, setPassLength] = useState(16)
 
-    const passwordLength = 24
-    const spliceStart = roll(0, 64 - passwordLength)
-    const PasswordOut = shuffledHash.splice(spliceStart,passwordLength).join('')
+    const options = [16,20,24]
     
     function fyShuffle (toShuffle = []) {
         for (let i = (toShuffle.length - 1); i > 0; i -= 1) {
         const randomIndex = Math.floor(Math.random() * (i + 1));
         [toShuffle[i], toShuffle[randomIndex]] = [toShuffle[randomIndex], toShuffle[i]];
         }
-        return toShuffle;
+        return toShuffle
     }
 
     function roll(min, max) {
@@ -27,26 +22,51 @@ function Main() {
         return result
     }
 
+    function generatePass() {
+        const array = new Uint32Array(1)
+        const seed = self.crypto.getRandomValues(array)
+        const seedIni = seed[0].toString()
+        const hashCode = sha256(seedIni)
+        const hashArray = [...hashCode]
+        const shuffledHash  = fyShuffle(hashArray)
+        const passwordLength = passLength
+        const spliceStart = roll(0, 64 - passwordLength)
+        const PasswordOut = shuffledHash.splice(spliceStart,passwordLength).join('')
+        
+        setPass(PasswordOut)
+    }
+
+    function handleChangeLength(event) {
+        setPassLength(event.target.value)
+    }
 
     return (
         <main>
-            <div className="top-text">
-                Strong and unique password generator for your online accounts
-            </div>
+            <p className="top-text">
+                <em>Strong and unique password generator for your online accounts</em>
+            </p>
             <div>
                 <div className='displayPassword'>
-                    {PasswordOut}
+                    {pass ? pass : <p></p>}
                 </div>
                 <div className='userInput'>
                     <div className="custom-select">
                         <label htmlFor="">Password Length: </label>
-                        <select name="pwLength" id="pwLength">
-                                <option value="16">16</option>
-                                <option value="20">20</option>
-                                <option value="24">24</option>
+                        <select onChange={handleChangeLength} >
+                            {options.map((option, index) => {
+                                return(
+                                    <option key={index}>
+                                        {option}
+                                    </option>
+                                )
+                            })}
                         </select>
                     </div>
-                    <button className='userSubmit'>Generate</button>
+                    <button 
+                        className='userSubmit'
+                        onClick={generatePass}
+                        >Generate    
+                    </button>
                 </div>
             </div>
             <div className="bottom-text">
@@ -58,8 +78,8 @@ function Main() {
                 <br />
                 <p><strong> Time Savings:</strong> Manually coming up with strong passwords for each of your accounts can be time-consuming. Password generators provide an efficient solution, instantly generating secure passwords in a matter of seconds.</p>
                 <br />
-                {/* <p>In summary, using a password generator can significantly improve your online security by providing strong, unique, and convenient passwords, ultimately helping to protect your personal information and data from unauthorized access.</p>
-                <br /> */}
+                <p><em>In summary, using a password generator can significantly improve your online security by providing strong, unique, and convenient passwords, ultimately helping to protect your personal information and data from unauthorized access.</em></p>
+                <br />
             </div>
             
         </main>

@@ -1,4 +1,4 @@
-/* reset default */
+/* reset default CSS */
 *,
 *::before,
 *::after {
@@ -7,54 +7,69 @@
 
 * {
   margin: 0;
+  padding: 0;
+}
+/* ---------------------------------------------------------------------- */
+
+:root {
+  --main-light-color: #d4d4d4;
+  --main-dark-color: #171717;
+  --button-hover: #27272a;
 }
 
 body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   font-family: 'Inter', sans-serif;
+  background-color: var(--main-light-color);
+  color: var(--main-dark-color);
 }
 
-/* ---------------------------------------------------------------------- */
-
-body {
-  /* display: flex;
-  flex-direction: column; */
-  background-color: #262626;
-  color: #d4d4d4;
+.App {
+  min-height: 100dvh;
+  min-width: 400px;
+  display: flex;
+  flex-direction: column;
 }
 
 .header-nav {
-  /* width: 100%; */
+  background-color: var(--main-dark-color);
   box-shadow: rgb(0 0 0 / 20%) 0 2px 10px;
-  padding: 0.8rem;
+  padding: 1.4rem;
   text-align: center;
+  margin-bottom: 1.4rem;
 }
 .header-nav h1 {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 1.8rem;
   font-weight: 700;
+  letter-spacing: 0.1rem;
+  color: var(--main-light-color);
 }
 
 main {
   /* border: 1px solid red; */
-  max-width: 29rem;
-  margin: 1rem auto;
+  max-width: 768px;
+  margin: 0 auto;
   padding-left: 1rem;
   padding-right: 1rem;
 }
 
 main .top-text {
-  margin: 2rem 0;
-  font-size: medium;
+  margin: 1rem 0;
+  font-size: 1rem;
+  margin-bottom: 1.4rem;
 }
 
 main .bottom-text {
   margin: 2rem 0;
-  font-size: 1rem;
+  font-size: 0.95rem;
   text-align: justify;
 }
 
 main .displayPassword {
-  background-color: #3f3f46;
+  background-color: var(--main-light-color);
+  box-shadow: rgb(0 0 0 / 20%) 0 2px 5px;
   height: 5rem;
   border-radius: 0.6rem;
   display: flex;
@@ -67,11 +82,14 @@ main .displayPassword {
   letter-spacing: 0.2rem;
 }
 
+main .displayPassword p {
+  opacity: 0.2;
+  letter-spacing: 0;
+}
+
 main .userInput {
   margin-bottom: 2rem;
   height: 10rem;
-  /* border: 1px solid green; */
-  padding: 0.5rem;
 }
 
 main .custom-select {
@@ -83,8 +101,8 @@ main .custom-select {
 select {
   width: 4rem;
   height: 1.6rem;
-  background-color: #27272a;
-  color: #d4d4d4;
+  background-color: var(--main-dark-color);
+  color: var(--main-light-color);
   border-radius: 0.5rem;
   text-align: center;
 }
@@ -95,22 +113,45 @@ main .userSubmit {
   border-radius: 0.5rem;
   border: none;
   font-size: 1.6rem;
+  letter-spacing: 0.1rem;
 
-  background-color: #d4d4d4;
-  color: #262626;
-}
-
-main .userSubmit:hover {
-  background-color: #e5e5e5;
-  cursor: pointer;
+  background-color: var(--main-dark-color);
+  color: var(--main-light-color);
 }
 
 footer {
-  position: sticky;
-  height: 100px;
-  top: calc(100vh - 100px);
-  width: 100%;
+  margin-top: auto;
+  padding: 1rem;
+  background-color: var(--main-dark-color);
+  color: var(--main-light-color);
   box-shadow: rgb(0 0 0 / 20%) 0 -2px 10px;
-  height: 4rem;
   text-align: center;
+}
+
+/* ---------------------------------------------------------------------- */
+
+@media (min-width: 768px) {
+  .header-nav {
+    padding: 1.4rem;
+  }
+
+  .header-nav h1 {
+    font-size: 2.2rem;
+    letter-spacing: 0.2rem;
+  }
+
+  main .displayPassword {
+    font-size: 1.7rem;
+    line-height: normal;
+    letter-spacing: 0.4rem;
+  }
+
+  main .bottom-text {
+    text-align: left;
+  }
+
+  main .userSubmit:hover {
+    background-color: var(--button-hover);
+    cursor: pointer;
+  }
 }
