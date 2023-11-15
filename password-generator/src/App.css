@@ -20,7 +20,7 @@
 body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Space Mono', monospace;
   background-color: var(--main-light-color);
   color: var(--main-dark-color);
 }
@@ -32,18 +32,28 @@ body {
   flex-direction: column;
 }
 
+.react-icons {
+  vertical-align: middle;
+}
+
 .header-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: var(--main-dark-color);
   box-shadow: rgb(0 0 0 / 20%) 0 2px 10px;
   padding: 1.4rem;
   text-align: center;
-  margin-bottom: 1.4rem;
+  margin-bottom: 1.2rem;
 }
 .header-nav h1 {
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  font-size: 1.8rem;
-  font-weight: 700;
-  letter-spacing: 0.1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.8rem;
+  margin-left: 1rem;
+  font-size: 1.6rem;
+  font-weight: 500;
   color: var(--main-light-color);
 }
 
@@ -57,13 +67,17 @@ main {
 
 main .top-text {
   margin: 1rem 0;
-  font-size: 1rem;
+  font-size: 0.8rem;
   margin-bottom: 1.4rem;
 }
 
+.custom-select label {
+  font-size: 0.8rem;
+}
+
 main .bottom-text {
-  margin: 2rem 0;
-  font-size: 0.95rem;
+  /* margin: 0; */
+  font-size: 0.8rem;
   text-align: justify;
 }
 
@@ -75,7 +89,7 @@ main .displayPassword {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 2rem;
+  margin-bottom: 0.8rem;
 
   font-size: 1.1rem;
   line-height: normal;
@@ -88,8 +102,7 @@ main .displayPassword p {
 }
 
 main .userInput {
-  margin-bottom: 2rem;
-  height: 10rem;
+  height: fit-content;
 }
 
 main .custom-select {
@@ -109,6 +122,7 @@ select {
 
 main .userSubmit {
   width: 100%;
+  padding: 0 1rem;
   height: 4rem;
   border-radius: 0.5rem;
   border: none;
@@ -120,12 +134,25 @@ main .userSubmit {
 }
 
 footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
   margin-top: auto;
   padding: 1rem;
   background-color: var(--main-dark-color);
   color: var(--main-light-color);
   box-shadow: rgb(0 0 0 / 20%) 0 -2px 10px;
   text-align: center;
+}
+
+footer p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.2rem;
+  line-height: normal;
+  font-size: 0.8rem;
 }
 
 /* ---------------------------------------------------------------------- */
@@ -136,18 +163,31 @@ footer {
   }
 
   .header-nav h1 {
-    font-size: 2.2rem;
-    letter-spacing: 0.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.8rem;
+    font-size: 2rem;
+    letter-spacing: 0.1rem;
+    /* font-weight: bold; */
   }
 
   main .displayPassword {
-    font-size: 1.7rem;
+    font-size: 1.4rem;
     line-height: normal;
-    letter-spacing: 0.4rem;
+    letter-spacing: 0.3rem;
+  }
+  main .top-text {
+    font-size: 0.9rem;
+  }
+
+  .custom-select label {
+    font-size: 0.9rem;
   }
 
   main .bottom-text {
     text-align: left;
+    font-size: 0.9rem;
   }
 
   main .userSubmit:hover {

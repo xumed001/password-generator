@@ -43,15 +43,15 @@ function Main() {
     return (
         <main>
             <p className="top-text">
-                <em>Strong and unique password generator for your online accounts</em>
+                Strong and unique password generator for your online accounts
             </p>
             <div>
                 <div className='displayPassword'>
-                    {pass ? pass : <p></p>}
+                    {pass ? pass : <p>----------------</p>}
                 </div>
                 <div className='userInput'>
                     <div className="custom-select">
-                        <label htmlFor="">Password Length: </label>
+                        <label>Password Length: </label>
                         <select onChange={handleChangeLength} >
                             {options.map((option, index) => {
                                 return(
@@ -70,7 +70,7 @@ function Main() {
                 </div>
             </div>
             <div className="bottom-text">
-                <p>Benifits of using a password generator: </p>
+                {/* <p>Benifits of using a password generator: </p> */}
                 <br />
                 <p><strong> Enhanced Security:</strong> Password generators create strong and complex passwords that are difficult for hackers to guess or crack. These passwords typically include a combination of uppercase and lowercase letters, numbers, and special characters, making them more secure than easily guessable passwords.</p>
                 <br />
@@ -78,7 +78,8 @@ function Main() {
                 <br />
                 <p><strong> Time Savings:</strong> Manually coming up with strong passwords for each of your accounts can be time-consuming. Password generators provide an efficient solution, instantly generating secure passwords in a matter of seconds.</p>
                 <br />
-                <p><em>In summary, using a password generator can significantly improve your online security by providing strong, unique, and convenient passwords, ultimately helping to protect your personal information and data from unauthorized access.</em></p>
+                <p>In summary, using a password generator can significantly improve your online security by providing strong, unique, and convenient passwords, ultimately helping to protect your personal information and data from unauthorized access.
+                </p>
                 <br />
             </div>
             
