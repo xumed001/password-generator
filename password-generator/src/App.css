@@ -14,6 +14,7 @@
 :root {
   --main-light-color: #d4d4d4;
   --main-dark-color: #171717;
+  --main-dark-secondary: #3f3f46;
   --button-hover: #27272a;
 }
 
@@ -42,16 +43,16 @@ body {
   align-items: center;
   background-color: var(--main-dark-color);
   box-shadow: rgb(0 0 0 / 20%) 0 2px 10px;
-  padding: 1.4rem;
-  text-align: center;
+  padding: 1.5rem 0;
+  /* text-align: left; */
   margin-bottom: 1.2rem;
 }
 .header-nav h1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 0.8rem;
-  margin-left: 1rem;
+  gap: 1rem;
+  margin: 0 1rem;
   font-size: 1.6rem;
   font-weight: 500;
   color: var(--main-light-color);
@@ -63,12 +64,17 @@ main {
   margin: 0 auto;
   padding-left: 1rem;
   padding-right: 1rem;
+  font-size: 0.8rem;
 }
 
 main .top-text {
-  margin: 1rem 0;
   font-size: 0.8rem;
   margin-bottom: 1.4rem;
+}
+
+main .top-info-section {
+  margin-left: 1.4rem;
+  margin-bottom: 2rem;
 }
 
 .custom-select label {
@@ -79,6 +85,15 @@ main .bottom-text {
   /* margin: 0; */
   font-size: 0.8rem;
   text-align: justify;
+}
+
+main .bottom-text--title {
+  margin-bottom: 0.6rem;
+}
+
+main .bottom-text--special {
+  font-size: 0.7rem;
+  color: var(--main-dark-secondary);
 }
 
 main .displayPassword {
@@ -172,22 +187,23 @@ footer p {
     /* font-weight: bold; */
   }
 
+  main {
+    font-size: 0.9rem;
+  }
+
   main .displayPassword {
     font-size: 1.4rem;
     line-height: normal;
     letter-spacing: 0.3rem;
   }
-  main .top-text {
-    font-size: 0.9rem;
-  }
 
   .custom-select label {
-    font-size: 0.9rem;
+    font-size: 1rem;
   }
 
   main .bottom-text {
     text-align: left;
-    font-size: 0.9rem;
+    /* font-size: 0.9rem; */
   }
 
   main .userSubmit:hover {
