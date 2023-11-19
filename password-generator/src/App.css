@@ -99,22 +99,58 @@ main .bottom-text--special {
 main .displayPassword {
   background-color: var(--main-light-color);
   box-shadow: rgb(0 0 0 / 20%) 0 2px 5px;
-  height: 5rem;
+  height: 6rem;
   border-radius: 0.6rem;
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   margin-bottom: 0.8rem;
+}
 
-  font-size: 1.1rem;
+main .displayPassword-text {
+  text-align: center;
+  flex-grow: 1;
+  width: 100%;
+  font-size: 1.2rem;
+  letter-spacing: 0.1rem;
+  background-color: transparent;
+  border: none;
   line-height: normal;
-  letter-spacing: 0.2rem;
+  margin-bottom: 2rem;
 }
 
-main .displayPassword p {
-  opacity: 0.2;
-  letter-spacing: 0;
+main .displayPassword-text:focus {
+  outline: none;
 }
+
+main .displayPassword-button {
+  margin-left: auto;
+  background-color: transparent;
+  border: none;
+  border-radius: 50%;
+  padding: 0.2rem;
+}
+
+main .displayPassword-button:active {
+  background-color: #a3a3a3;
+  /* box-shadow: inset 2px 2px 1px var(--main-dark-secondary); */
+}
+
+/* .displayPassword-button::before {
+  content: 'copied!';
+  position: absolute;
+  right: 40px;
+  padding: 0.4rem;
+  font-size: 1rem;
+  display: none;
+}
+
+.displayPassword:active button::before,
+.displayPassword:active button::after {
+  transition: all 1s ease-out;
+  display: block;
+} */
 
 main .userInput {
   height: fit-content;
@@ -188,13 +224,25 @@ footer p {
   }
 
   main {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
   }
 
-  main .displayPassword {
+  main .displayPassword-text {
     font-size: 1.4rem;
     line-height: normal;
     letter-spacing: 0.3rem;
+  }
+
+  main .displayPassword-text:focus {
+    outline: none;
+  }
+
+  main .displayPassword-button:hover {
+    cursor: pointer;
+  }
+
+  main .custom-select select {
+    cursor: pointer;
   }
 
   .custom-select label {
