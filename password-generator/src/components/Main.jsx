@@ -45,6 +45,8 @@ function Main() {
         navigator.clipboard.writeText(pass)
     }
 
+
+    
     return (
         <main>
             <div>
