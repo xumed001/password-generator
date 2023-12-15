@@ -23,6 +23,15 @@ function Main() {
         return result
     }
 
+    function addDash(input) {
+        const inputLength = input.length
+        const matrix = []
+        for (let i=0; i<inputLength; i+=4) {
+            matrix.push([input.slice(i, i+4)])
+        }
+        return matrix.join('-')
+    }
+
     function generatePass() {
         const array = new Uint32Array(1)
         const seed = self.crypto.getRandomValues(array)
@@ -33,8 +42,8 @@ function Main() {
         const passwordLength = passLength
         const spliceStart = roll(0, 64 - passwordLength)
         const PasswordOut = shuffledHash.splice(spliceStart,passwordLength).join('')
-        
-        setPass(PasswordOut)
+        const dashedPass = addDash(PasswordOut)
+        setPass(dashedPass)
     }
 
     function handleChangeLength(event) {
@@ -45,13 +54,11 @@ function Main() {
         // console.log(typeof pass)
         navigator.clipboard.writeText(pass)
     }
-
-
     
     return (
         <main>
-            <div>
-                <p className="top-text">Strong and unique password generator for your online accounts</p>
+            <section>
+                <h2 className="top-text">Strong and unique password generator for your online accounts</h2>
                 <p>Password management “don&apos;ts” to keep in mind:</p>
                 <div className='top-info-section'> 
                     <ul>
@@ -61,8 +68,9 @@ function Main() {
                         <li>DON&apos;T share passwords</li>
                     </ul>
                 </div>
-            </div>
-            <div>
+            </section>
+
+            <section>
                 <div className='displayPassword'>
                     {pass && <button className='displayPassword-button' onClick={copyPass}>
                         <FaRegCopy size={20} />
@@ -88,10 +96,11 @@ function Main() {
                         >Generate    
                     </button>
                 </div>
-            </div>
-            <div className="bottom-text">
+            </section>
+
+            <section className="bottom-text">
                 <br />
-                <h4 className="bottom-text--title">Benifits of using a password generator: </h4>
+                <h3 className="bottom-text--title">Benifits of using a password generator: </h3>
                 <p><strong> Enhanced Security:</strong> Password generators create strong and complex passwords that are difficult for hackers to guess or crack. These passwords typically include a combination of uppercase and lowercase letters, numbers, and special characters, making them more secure than easily guessable passwords.</p>
                 <br />
                 <p><strong> Unique Passwords for Each Account:</strong> A password generator can create unique passwords for each of your onulne accounts. This prevents the risk of a security breach on one platform compromising your other accounts, as each password is different.</p>
@@ -102,8 +111,7 @@ function Main() {
                 {/* <p>In summary, using a password generator can significantly improve your online security by providing strong, unique, and convenient passwords, ultimately helping to protect your personal information and data from unauthorized access.
                 </p> */}
                 <br />
-            </div>
-            
+            </section>
         </main>
     )
 }
