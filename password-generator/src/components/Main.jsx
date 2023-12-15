@@ -2,6 +2,7 @@
 //
 import { sha256 } from 'js-sha256'
 import { useState } from 'react';
+import { FaRegCopy } from "react-icons/fa";
 
 function Main() {
     const [pass, setPass] = useState('')
@@ -64,7 +65,7 @@ function Main() {
             <div>
                 <div className='displayPassword'>
                     {pass && <button className='displayPassword-button' onClick={copyPass}>
-                        <span className="material-symbols-outlined">content_copy</span>
+                        <FaRegCopy size={20} />
                     </button>}
                     <input type="text" className='displayPassword-text' value={pass} readOnly/>
                 </div>

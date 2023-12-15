@@ -134,23 +134,7 @@ main .displayPassword-button {
 
 main .displayPassword-button:active {
   background-color: #a3a3a3;
-  /* box-shadow: inset 2px 2px 1px var(--main-dark-secondary); */
 }
-
-/* .displayPassword-button::before {
-  content: 'copied!';
-  position: absolute;
-  right: 40px;
-  padding: 0.4rem;
-  font-size: 1rem;
-  display: none;
-}
-
-.displayPassword:active button::before,
-.displayPassword:active button::after {
-  transition: all 1s ease-out;
-  display: block;
-} */
 
 main .userInput {
   height: fit-content;
